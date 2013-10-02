@@ -18,7 +18,7 @@ public class TOFileWriter {
 	private static final String basePath = "/home/niclex/temp";
 	private static final String fileExtension = "dhef";
 	
-	public boolean writeFile(String clientId, String systemId, String toObjectType, File sourceFile) {
+	public String writeFile(String clientId, String systemId, String toObjectType, File sourceFile) {
 		boolean returnValue = false;
 		
 		UUID uuid = UUID.randomUUID();
@@ -48,8 +48,8 @@ public class TOFileWriter {
 			logger.error("Failed to create and copy file.", e);
 		}
 
-		logger.info("file "+targetFile.getAbsolutePath()+" successful written: "+returnValue);
-		return returnValue;
+		logger.info("file "+fileUri.toString()+" successful written: "+returnValue);
+		return fileUri.toString();
 	}
 	
 }
